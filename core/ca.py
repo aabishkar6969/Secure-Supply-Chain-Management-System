@@ -8,7 +8,7 @@ def create_root_ca(common_name: str):
     private_key = rsa.generate_private_key(public_exponent=65537, key_size=2048)
     subject = issuer = x509.Name([
         x509.NameAttribute(NameOID.COMMON_NAME, common_name),
-        x509.NameAttribute(NameOID.ORGANIZATION_NAME, "SupplyTrust CA"),
+        x509.NameAttribute(NameOID.ORGANIZATION_NAME, "Secure Supply Chain CA"),
     ])
     cert = x509.CertificateBuilder().subject_name(
         subject
