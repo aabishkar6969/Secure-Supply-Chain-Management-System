@@ -1,25 +1,15 @@
 {% extends "base.html" %}
-{% block content %}
-<h1>Dashboard</h1>
-<p>Secure your supply chain with cryptographic verification.</p>
 
-<div class="card-grid">
-    <div class="card">
-        <h2><span class="card-icon">👤</span> Register Participant</h2>
-        <p>Add new participants (manufacturers, distributors, pharmacies) to the system.</p>
-        <a href="{{ url_for('register') }}" class="btn btn-primary">Register Now</a>
-    </div>
-    
-    <div class="card">
-        <h2><span class="card-icon">✍️</span> Sign Shipment</h2>
-        <p>Digitally sign shipment records to prove authenticity and origin.</p>
-        <a href="{{ url_for('sign') }}" class="btn btn-success">Sign Shipment</a>
-    </div>
-    
-    <div class="card">
-        <h2><span class="card-icon">🔍</span> Verify Shipment</h2>
-        <p>Verify shipment integrity and detect tampering attempts.</p>
-        <a href="#" class="btn btn-secondary disabled">Verify Shipment</a>
+{% block title %}Home - Secure Supply Chain{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>Welcome to Secure Supply Chain Management</h2>
+    <p>Verify and sign shipment events using digital certificates and cryptographic signatures.</p>
+    <div class="actions">
+        <a href="{{ url_for('register') }}" class="btn">Register Participant</a>
+        <a href="{{ url_for('sign') }}" class="btn">Sign Shipment</a>
+        <a href="{{ url_for('verify') }}" class="btn">Verify Signature</a>
     </div>
 </div>
 {% endblock %}

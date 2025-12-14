@@ -8,29 +8,32 @@
 </head>
 <body>
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <div class="logo-icon">🛡️</div>
-                <span>Secure Supply Chain</span>
-            </div>
-            <p>Verifiable Trust for Global Commerce</p>
-        </div>
+        <h1>🔒 Secure Supply Chain Management</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('sign') }}">Sign Event</a>
+            <a href="{{ url_for('verify') }}">Verify Event</a>
+        </nav>
     </header>
-    
-    <main class="container">
+
+    <main>
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
-                    <div class="alert alert-{{ category if category != 'message' else 'info' }}">
-                        {{ message }}
-                    </div>
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
-        
+
         {% block content %}{% endblock %}
     </main>
-    
+
+    <footer>
+        <p>© 2025 Secure Supply Chain Project | Built with Flask & Cryptography</p>
+    </footer>
+
+    <!-- Load JavaScript at the bottom -->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

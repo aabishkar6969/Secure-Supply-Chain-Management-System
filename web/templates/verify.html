@@ -1,34 +1,21 @@
 {% extends "base.html" %}
+
+{% block title %}Verify Shipment Event{% endblock %}
+
 {% block content %}
-<h1>🔍 Verify Shipment</h1>
+<div class="form-container">
+    <h2>Verify Shipment Event</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label for="cert_file">Participant Certificate (.crt):</label>
+        <input type="file" id="cert_file" name="cert_file" accept=".crt" required>
 
-<div class="card">
-    <h2>Shipment Details</h2>
-    <p><strong>Batch ID:</strong> {{ shipment.batch_id }}</p>
-    <p><strong>Product:</strong> {{ shipment.product }}</p>
-    <p><strong>From:</strong> {{ sender.name }}</p>
-    <p><strong>Status:</strong> 
-        <span class="status-badge {% if is_valid and not tampered %}status-valid{% else %}status-invalid{% endif %}">
-            {% if is_valid and not tampered %}
-                ✅ VERIFIED - Authentic & Untampered
-            {% else %}
-                ❌ TAMPERED - Fraud Detected!
-            {% endif %}
-        </span>
-    </p>
-</div>
+        <label for="sig_file">Signature File (.sig):</label>
+        <input type="file" id="sig_file" name="sig_file" accept=".sig" required>
 
-{% if not tampered %}
-<div class="card">
-    <h2>⚠️ Security Test</h2>
-    <p>Simulate a tamper attack to see how the system detects fraud.</p>
-    <form id="tamperForm" method="POST">
-        <button type="submit" id="tamperBtn" class="btn btn-warning">
-            Simulate Tamper Attack
-        </button>
+        <label for="event_file">Shipment Event JSON File:</label>
+        <input type="file" id="event_file" name="event_file" accept=".json" required>
+
+        <button type="submit">Verify Signature</button>
     </form>
 </div>
-{% endif %}
-
-<a href="{{ url_for('index') }}" class="btn btn-secondary" style="margin-top: 20px;">← Back to Dashboard</a>
 {% endblock %}
