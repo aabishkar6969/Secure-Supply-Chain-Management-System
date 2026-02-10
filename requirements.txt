@@ -1,6 +1,0 @@
-@"
-flask>=2.3.0
-cryptography>=41.0.0
-click>=8.1.0
-pytest>=7.4.0
-"@ | Out-File -FilePath requirements.txt -Encoding utf8
