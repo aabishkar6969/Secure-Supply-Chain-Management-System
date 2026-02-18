@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Secure Supply Chain{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>Welcome to Secure Supply Chain Management</h2>
+    <p>Verify and sign shipment events using digital certificates and cryptographic signatures.</p>
+    <div class="actions">
+        <a href="{{ url_for('register') }}" class="btn">Register Participant</a>
+        <a href="{{ url_for('sign') }}" class="btn">Sign Shipment</a>
+        <a href="{{ url_for('verify') }}" class="btn">Verify Signature</a>
+    </div>
+</div>
+{% endblock %}
