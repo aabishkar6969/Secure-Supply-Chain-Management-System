@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "secure-supply-chain"
+version = "1.0.0"
+authors = [
+  { name="Aabishkar", email="your@email.com" },
+]
+description = "A Cryptographic Toolkit for Verifiable Integrity and Authentication in Supply Chains"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security :: Cryptography",
+]
+dependencies = [
+    "flask>=2.3.0",
+    "cryptography>=41.0.0",
+    "click>=8.1.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/aabishkar6969/Secure-Supply-Chain-Management-System"
+"Bug Tracker" = "https://github.com/aabishkar6969/Secure-Supply-Chain-Management-System/issues"
+
+[project.scripts]
+supply-chain = "cli.main:cli"
